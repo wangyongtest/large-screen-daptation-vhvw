@@ -1,8 +1,8 @@
 <!--
  * @Author: wy
  * @Date: 2024-03-10 20:34:09
- * @LastEditors: 
- * @LastEditTime: 2024-03-10 21:53:47
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-03-21 23:23:36
  * @Description: 描述
 -->
 <template>
@@ -50,7 +50,6 @@ watch(
   () => props.chartOptions,
   (newOptions) => {
     if (newOptions) {
-      console.log(newOptions.title.textStyle, "watch-item");
       chartInstance?.setOption(newOptions, true);
     }
   },

@@ -1,50 +1,26 @@
+<!--
+ * @Author: wy
+ * @Date: 2024-03-21 22:06:42
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-03-31 13:01:45
+ * @Description: 描述
+-->
 <template>
-  <section class="parentRoot">
-    <section class="layoutLeft">
-      <section class="container">
-        <section class="chartItem">
-          <chart-com :chart-options="options" />
-        </section>
-        <section class="chartItem">
-          <chart-com :chart-options="options" />
-        </section>
-        <section class="chartItem">
-          <chart-com :chart-options="options" />
-        </section>
-      </section>
-    </section>
-    <section class="layoutCenter">
-      <span v-test>
-        11111111111111111111111111111111111111111111111111111111
-      </span>
-    </section>
-    <section class="layoutRight">
-      <section class="container">
-        <section class="chartItem">
-          <chart-com :chart-options="options" />
-        </section>
-        <section class="chartItem">
-          <chart-com :chart-options="options" />
-        </section>
-        <section class="chartItem">
-          <chart-com :chart-options="options" />
-        </section>
-      </section>
-    </section>
+  <section class="layoutRoot">
+    <!-- GIS dom节点 -->
+    <section class="gisDom"></section>
+    <!-- 浮动页面布局组件 -->
+    <header-com />
+    <left-hinge />
+    <right-hinge />
+    <bottom-hinge />
   </section>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
-import { createOptions } from "./chart.ts";
-
-let options = ref(createOptions());
-console.log(options.value.title.textStyle, "111");
-// console.log(options)
-import ChartCom from "@/components/chartCommon.vue";
-window.addEventListener("resize", () => {
-  options.value = createOptions();
-  console.log(options.value.title.textStyle, "222");
-});
+import LeftHinge from "@/components/layout/leftHinge.vue";
+import RightHinge from "@/components/layout/rightHinge.vue";
+import HeaderCom from "@/components/layout/header.vue";
+import BottomHinge from "@/components/layout/bottomHinge.vue";
 </script>
 <style lang="less" scoped>
 /**
@@ -59,54 +35,18 @@ window.addEventListener("resize", () => {
 //     .px2vh(margin-top, 100);
 //     background-color: black;
 // }
-.parentRoot {
-  width: 100%;
-  height: 100%;
-  background-color: pink;
+.layoutRoot {
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  .layoutLeft {
-    // .px2vw(width,440);
-    // .px2vh(height,312);
+  overflow: hidden;
+  .gisDom {
+    width: 100vw;
+    height: 100vh;
     position: absolute;
+    top: 0;
     left: 0;
-    z-index: 1;
-    .container {
-      width: 100%;
-      height: 100%;
-      .px2vh(margin-top,90);
-      display: grid;
-      grid-template-rows: repeat(3, 1fr);
-      grid-row-gap: 10px;
-      .chartItem {
-        .px2vw(width,440);
-        .px2vh(height,312);
-        .px2font(14);
-      }
-    }
-  }
-  .layoutRight {
-    position: absolute;
-    right: 0;
-    z-index: 1;
-
-    .container {
-      width: 100%;
-      height: 100%;
-      .px2vh(margin-top,90);
-      display: grid;
-      grid-template-rows: repeat(3, 1fr);
-      grid-row-gap: 10px;
-      .chartItem {
-        .px2vw(width,440);
-        .px2vh(height,312);
-        .px2font(14);
-      }
-    }
-  }
-  .layoutCenter {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    z-index: 0;
     background-color: #ccc;
   }
 }

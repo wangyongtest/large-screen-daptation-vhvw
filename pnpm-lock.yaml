@@ -8,6 +8,9 @@ dependencies:
   '@types/element-resize-detector':
     specifier: ^1.1.6
     version: 1.1.6
+  animejs:
+    specifier: ^3.2.2
+    version: 3.2.2
   echarts:
     specifier: ^5.5.0
     version: 5.5.0
@@ -19,6 +22,9 @@ dependencies:
     version: 3.4.21(typescript@5.4.2)
 
 devDependencies:
+  '@types/animejs':
+    specifier: ^3.1.12
+    version: 3.1.12
   '@types/node':
     specifier: ^20.11.25
     version: 20.11.25
@@ -385,6 +391,10 @@ packages:
     dev: true
     optional: true
 
+  /@types/animejs@3.1.12:
+    resolution: {integrity: sha512-fpdH+ZtlO0kqjTOqRaBdsEmvpRNOayI8k4EVkEtitL5l6wducDOXk0rgQgfZqWf/ZX9DzXrHf257S5i9xTcISQ==}
+    dev: true
+
   /@types/element-resize-detector@1.1.6:
     resolution: {integrity: sha512-hj0o+gfpKB3XFdMwPBxyMxKkpUpjxI2CctMeaC7gelAsnRfqluiynlM5BOCxv27HnndVWh+utrXlqo1PLyW2Sg==}
     dev: false
@@ -512,6 +522,10 @@ packages:
 
   /@vue/shared@3.4.21:
     resolution: {integrity: sha512-PuJe7vDIi6VYSinuEbUIQgMIRZGgM8e4R+G+/dQTk0X1NEdvgvvgv7m+rfmDH1gZzyA1OjjoWskvHlfRNfQf3g==}
+
+  /animejs@3.2.2:
+    resolution: {integrity: sha512-Ao95qWLpDPXXM+WrmwcKbl6uNlC5tjnowlaRYtuVDHHoygjtIPfDUoK9NthrlZsQSKjZXlmji2TrBUAVbiH0LQ==}
+    dev: false
 
   /ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
