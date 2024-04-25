@@ -2,17 +2,10 @@
  * @Author: wy
  * @Date: 2024-03-23 14:49:53
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-03-24 17:04:53
+ * @LastEditTime: 2024-04-25 20:51:55
  * @Description: 描述
  */
-import {
-  Ref,
-  shallowRef,
-  unref,
-  onMounted,
-  // onDeactivated,
-  onBeforeUnmount,
-} from "vue";
+import { Ref, shallowRef, unref, onBeforeUnmount } from "vue";
 
 import echarts from "@/components/common/baseEcharts/echartsConfig.ts";
 
@@ -34,7 +27,7 @@ export const useEChart = (
     const el = unref(elRef);
     if (!el || !unref(el)) return;
     charts.value = echarts.init(el);
-
+    window.addEventListener("resize", resize);
     if (themeColor) {
       options.color = themeColor;
     }
@@ -43,17 +36,10 @@ export const useEChart = (
 
   //   窗口变化时重新计算
   const resize = () => {
+    console.log("resize", charts.value);
+
     charts.value && charts.value.resize();
   };
-
-  onMounted(() => {
-    window.addEventListener("resize", resize);
-  });
-
-  // //   页面失活取消监听
-  // onDeactivated(() => {
-  //   window.removeEventListener("resize", resize);
-  // });
 
   //   组件销毁前取消监听
   onBeforeUnmount(() => {

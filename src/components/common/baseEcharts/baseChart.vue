@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { EChartsCoreOption, useEChart } from "@/hooks/useChart.ts";
-import { ref, watch, PropType } from "vue";
+import { ref, watch, PropType, onMounted } from "vue";
 
 const props = defineProps({
   options: {

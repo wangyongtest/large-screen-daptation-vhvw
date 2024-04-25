@@ -1,3 +1,10 @@
+<!--
+ * @Author: wy
+ * @Date: 2024-03-21 23:24:51
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-03-31 17:40:23
+ * @Description: 描述
+-->
 <template>
   <section class="blockHeader">
     <span class="blockHeader-title">{{ blockTitle }}</span>
@@ -39,7 +46,7 @@ defineProps({
   .px2vh(height,32);
   .px2vh(line-height,32);
   box-sizing: border-box;
-  border: 1px solid red;
+  // border: 1px solid red;
   .blockHeader-title {
     display: block;
     .px2vw(width,220);
@@ -49,6 +56,15 @@ defineProps({
     .px2font(14);
     font-weight: 700;
     border: 1px solid orange;
+    animation: slide-in 10s steps(60) forwards;
+  }
+}
+@keyframes slide-in {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
   }
 }
 </style>
